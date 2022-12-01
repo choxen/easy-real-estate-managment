@@ -10,8 +10,6 @@ use Illuminate\Http\RedirectResponse;
 
 class ClientsController extends Controller
 {
-    private const ITEMS_PER_PAGE = 10;
-
     public function index()
     {
         $clients = Client::paginate(self::ITEMS_PER_PAGE);

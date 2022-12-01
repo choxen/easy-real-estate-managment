@@ -11,8 +11,6 @@ use Illuminate\Http\RedirectResponse;
 
 class PropertiesController extends Controller
 {
-    private const ITEMS_PER_PAGE = 10;
-
     public function show(Property $property): View
     {
         return view('property.show', [

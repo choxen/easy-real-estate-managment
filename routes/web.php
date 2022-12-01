@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PropertiesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -27,4 +28,13 @@ Route::group(['prefix' => 'clients', 'as' => 'client.', 'middleware' => 'auth'],
     Route::post('/store', ClientsController::class . '@store')->name('store');
     Route::put('/update/{client}', ClientsController::class . '@update')->name('update');
 });
+
+Route::group(['prefix' => 'properties', 'as' => 'property.', 'middleware' => 'auth'], function () {
+    Route::get('/show/{property}', PropertiesController::class . '@show')->name('show');
+    Route::get('/create/{client}', PropertiesController::class . '@create')->name('create');
+    Route::get('/edit/{property}', PropertiesController::class . '@edit')->name('edit');
+    Route::post('/store', PropertiesController::class . '@store')->name('store');
+    Route::put('/update/{property}', PropertiesController::class . '@update')->name('update');
+});
+
 require __DIR__ . '/auth.php';

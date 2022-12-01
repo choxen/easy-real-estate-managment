@@ -30,6 +30,7 @@ class ClientsController extends Controller
     {
         return view('client.show', [
             'client' => $client,
+            'properties' => $client->properties()->paginate(self::ITEMS_PER_PAGE),
         ]);
     }
 

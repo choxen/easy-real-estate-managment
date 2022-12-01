@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\LandsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertiesController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,14 @@ Route::group(['prefix' => 'properties', 'as' => 'property.', 'middleware' => 'au
     Route::get('/edit/{property}', PropertiesController::class . '@edit')->name('edit');
     Route::post('/store', PropertiesController::class . '@store')->name('store');
     Route::put('/update/{property}', PropertiesController::class . '@update')->name('update');
+});
+
+Route::group(['prefix' => 'lands', 'as' => 'land.', 'middleware' => 'auth'], function () {
+    Route::get('/show/{land}', LandsController::class . '@show')->name('show');
+    Route::get('/create/{property}', LandsController::class . '@create')->name('create');
+    Route::get('/edit/{land}', LandsController::class . '@edit')->name('edit');
+    Route::post('/store', LandsController::class . '@store')->name('store');
+    Route::put('/update/{land}', LandsController::class . '@update')->name('update');
 });
 
 require __DIR__ . '/auth.php';

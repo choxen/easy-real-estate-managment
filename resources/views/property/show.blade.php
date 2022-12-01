@@ -12,6 +12,7 @@
                 Update property
             </a>
         </div>
+
         <div class="w-full flex justify-center">
             <div
                 class="rounded-lg shadow-lg w-2/4 gap-5 text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -41,6 +42,66 @@
                     <p class="text-base">
                         {{ $property->status }}
                     </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full">
+            <div class="flex flex-col gap-5">
+                <div class="w-full flex justify-center">
+                    <a href={{ route('land.create', $property) }}
+                        class="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 border rounded">
+                        Create land
+                    </a>
+                </div>
+                <div class="overflow-x-auto w-full flex justify-center">
+                    <table class="w-2/4 text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="py-3 px-6">
+                                    ID
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Property ID
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Cadastral sign
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Total area
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Measurement date
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($lands as $land)
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" id="land-col"
+                                    data-url={{ route('land.show', $land) }}>
+                                    <th scope="row"
+                                        class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{ $land->id }}
+                                    </th>
+                                    <td class="py-4 px-6">
+                                        {{ $land->property_id }}
+                                    </td>
+                                    <td class="py-4 px-6">
+                                        {{ $land->cadastral_sign }}
+                                    </td>
+                                    <td class="py-4 px-6">
+                                        {{ $land->total_area }}
+                                    </td>
+                                    <td class="py-4 px-6">
+                                        {{ $land->status }}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <div class="justify-center">
+                    {{ $lands->links() }}
                 </div>
             </div>
         </div>

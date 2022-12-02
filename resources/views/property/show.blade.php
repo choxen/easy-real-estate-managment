@@ -104,6 +104,7 @@
                     {{ $lands->links() }}
                 </div>
             </div>
+            @vite('resources/js/functions/land.js')
         </div>
     </div>
 </x-app-layout>

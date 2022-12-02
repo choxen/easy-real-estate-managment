@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Land extends Model
 {
@@ -19,12 +20,17 @@ class Land extends Model
         'measurement_date',
     ];
 
+    protected $casts = [
+        'measurement_date' => 'date',
+    ];
+
     public function property(): BelongsTo
     {
         return $this->belongsTo(Property::class);
     }
 
-    protected $casts = [
-        'measurement_date' => 'date',
-    ];
+    public function areas(): HasMany
+    {
+        return $this->hasMany(Area::class);
+    }
 }

@@ -14,7 +14,8 @@ class LandsController extends Controller
     public function show(Land $land): View
     {
         return view('land.show', [
-            'land' => $land
+            'land' => $land,
+            'areas' => $land->areas()->paginate(self::ITEMS_PER_PAGE),
         ]);
     }
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AreasController;
 use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\LandsController;
 use App\Http\Controllers\ProfileController;
@@ -44,6 +45,14 @@ Route::group(['prefix' => 'lands', 'as' => 'land.', 'middleware' => 'auth'], fun
     Route::get('/edit/{land}', LandsController::class . '@edit')->name('edit');
     Route::post('/store', LandsController::class . '@store')->name('store');
     Route::put('/update/{land}', LandsController::class . '@update')->name('update');
+});
+
+Route::group(['prefix' => 'areas', 'as' => 'area.', 'middleware' => 'auth'], function () {
+    Route::get('/show/{area}', AreasController::class . '@show')->name('show');
+    Route::get('/create/{land}', AreasController::class . '@create')->name('create');
+    Route::get('/edit/{area}', AreasController::class . '@edit')->name('edit');
+    Route::post('/store', AreasController::class . '@store')->name('store');
+    Route::put('/update/{area}', AreasController::class . '@update')->name('update');
 });
 
 require __DIR__ . '/auth.php';

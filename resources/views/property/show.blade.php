@@ -17,6 +17,13 @@
             <div
                 class="rounded-lg shadow-lg w-2/4 gap-5 text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <div class="p-6 text-center">
+                    <h5 class="text-xl font-medium mb-2 text-gray-900">ID:</h5>
+                    <p class="text-base">
+                        {{ $property->id }}
+                    </p>
+                </div>
+
+                <div class="p-6 text-center">
                     <h5 class="text-xl font-medium mb-2 text-gray-900">Client ID:</h5>
                     <p class="text-base">
                         {{ $property->client_id }}

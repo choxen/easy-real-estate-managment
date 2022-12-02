@@ -42,7 +42,8 @@ class PropertiesController extends Controller
 
     public function update(UpdateRequest $request, Property $property): RedirectResponse
     {
-        $property = $property->update($request->validated());
+        $property->update($request->validated());
+
         return redirect()->to(route('property.show', $property));
     }
 }

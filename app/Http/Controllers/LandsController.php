@@ -42,7 +42,7 @@ class LandsController extends Controller
 
     public function update(UpdateRequest $request, Land $land): RedirectResponse
     {
-        $land = $land->update($request->validated());
+        $land->update($request->validated());
 
         return redirect()->to(route('land.show', $land));
     }

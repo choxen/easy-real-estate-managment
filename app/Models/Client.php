@@ -34,4 +34,14 @@ class Client extends Model
             self::TYPE_LEGAL,
         ];
     }
+
+    public function totalPropertiesArea(): int
+    {
+        $total = 0;
+        foreach ($this->properties as $property) {
+            $total += $property->lands->sum('total_area');
+        }
+
+        return $total;
+    }
 }

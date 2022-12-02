@@ -2,18 +2,19 @@
 
 use App\Http\Controllers\AreasController;
 use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LandsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertiesController;
+use App\Models\Client;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect()->to(route('dashboard'));
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', HomeController::class . '@dashboard')->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

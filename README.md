@@ -20,6 +20,8 @@
 
 ## Demo
 
-<video autoplay>
-    <source src="https://i.imgur.com/2KvOyKG.mp4" type="video/mp4">
-</video>
+
+
+
+https://user-images.githubusercontent.com/60402744/205293945-0d103766-f179-4800-acd2-5c02b46f037b.mp4
+
